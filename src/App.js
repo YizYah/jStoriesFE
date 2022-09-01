@@ -8,7 +8,7 @@ import Subject from './pages/Subject';
 import SiteHeader from './components/Siteheader';
 
 // apollo client
-const url = 'http://localhost:1337/'
+const url = 'https://peaceful-everglades-50095.herokuapp.com/'
 const client = new ApolloClient({
   uri: url + 'graphql',
   cache: new InMemoryCache()
@@ -17,7 +17,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <Router>
-      <ApolloProvider client = {client}>
+      <ApolloProvider client={client}>
         <div className="App">
           <SiteHeader />
           <Routes>

@@ -48,3 +48,20 @@ a {
   padding-bottom: 10px;
   border-bottom: 2px solid;
 }
+
+.site-header .subjects {
+  text-align: right;
+}
+
+.site-header .subjects a {
+  margin-left: 10px;
+}
+
+.Subject h2 {
+  margin-bottom: 0;
+}
+
+.App.small {
+  margin-right: 10px;
+  color: #777;
+}

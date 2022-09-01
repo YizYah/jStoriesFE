@@ -1,8 +1,29 @@
 import React from 'react'
-import useFetch from '../hooks/useFetch'
+// import useFetch from '../hooks/useFetch'
+import { useQuery, gql } from '@apollo/client'
+
+const STORIES = gql`
+query GetStories {
+    stories {
+      data {
+        id
+        attributes {
+          title
+          subjects {
+            data {
+              id
+              }
+            }
+          }
+        }
+      }
+    }
+`
 
 export default function Homepage() {
-    const { loading, error, data } = useFetch('http://localhost:1337/api/stories')
+    // const { loading, error, data } = useFetch('http://localhost:1337/api/stories')
+    const { loading, error, data } = useQuery(STORIES)
+
     console.log(`data=${JSON.stringify(data, null, 2)}`)
 
     if (loading) return <p>Loading...</p>
@@ -12,7 +33,7 @@ export default function Homepage() {
     }
     return (
         <div>
-            {data.data.map(story => (
+            {data.stories.data.map(story => (
                 <div key={story.id} className="story-info">
                     <h2>{story.attributes.title}</h2>
 
